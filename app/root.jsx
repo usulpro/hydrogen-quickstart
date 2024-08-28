@@ -16,6 +16,15 @@ import appStyles from '~/styles/app.css?url';
 import {PageLayout} from '~/components/PageLayout';
 import {FOOTER_QUERY, HEADER_QUERY} from '~/lib/fragments';
 
+
+export function headers() {
+  return {
+    // 'Cache-Control': 'public, max-age=600, s-maxage=600, stale-while-revalidate=600',
+    'Oxygen-Cache-Control': 'public, max-age=3600, stale-while-revalidate=600',
+    Vary: 'Accept-Encoding, Accept-Language',
+  };
+}
+
 /**
  * This is important to avoid re-fetching root queries on sub-navigations
  * @type {ShouldRevalidateFunction}
