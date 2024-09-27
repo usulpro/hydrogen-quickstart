@@ -16,6 +16,15 @@ export const meta = ({data}) => {
   return [{title: `Hydrogen | ${data?.collection.title ?? ''} Collection`}];
 };
 
+export function headers() {
+  return {
+    'Cache-Control': 'public, max-age=43200,stale-while-revalidate=43200',
+    'Oxygen-Cache-Control':
+      'public, max-age=43200,stale-while-revalidate=43200',
+    Vary: 'Accept-Encoding',
+  };
+}
+
 /**
  * @param {LoaderFunctionArgs} args
  */

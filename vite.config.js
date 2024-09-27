@@ -3,9 +3,11 @@ import {hydrogen} from '@shopify/hydrogen/vite';
 import {oxygen} from '@shopify/mini-oxygen/vite';
 import {vitePlugin as remix} from '@remix-run/dev';
 import tsconfigPaths from 'vite-tsconfig-paths';
+import {remixDevTools} from 'remix-development-tools';
 
 export default defineConfig({
   plugins: [
+    remixDevTools(),
     hydrogen(),
     oxygen(),
     remix({
@@ -35,7 +37,12 @@ export default defineConfig({
        * Include 'example-dep' in the array below.
        * @see https://vitejs.dev/config/dep-optimization-options
        */
-      include: [],
+      include: [
+        'beautify',
+        'react-diff-viewer-continued',
+        'date-fns/formatDistance/index.js',
+        'date-fns/add/index.js',
+      ],
     },
   },
 });
